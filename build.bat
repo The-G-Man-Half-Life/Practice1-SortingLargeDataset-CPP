@@ -1,19 +1,21 @@
 @echo off
-echo Compilando el proyecto 1...
+echo Compiling the project 1...
 
-:: Crear la carpeta build si no existe
+:: Creates the file build if it does not exist.
 if not exist build mkdir build
 
-:: Compilar todos los archivos .cpp de la carpeta src
-:: -I include : Le dice al compilador que busque los .hpp en la carpeta includ
-:: -O3        : Activa la máxima optimización 
-:: -mconsole  : Indica que este archivo debe de ser ejecutado en consola;
-:: -std=c++17 : Usa el estándar moderno de C++
+:: Compiles all the files .cpp of the folder src.
+:: -I include : Tells the compiler to look for the .hpp in the folder include.
+:: -O3        : Activates the maximum optimization.
+:: -mconsole  : Indicates that this file must be executed in the console.
+:: -std=c++17 : Uses the modern standard of C++.
 g++ -std=c++17 -O3 -mconsole -I include src\*.cpp -o build/sortingMethods.exe
 
+::Takes care of inidicating the user if the proccess was executed succesfully
+::or no, and in case it worked tells the user how to proceed.
 if %errorlevel% neq 0 (
-    echo Hubo errores de compilacion.
+    echo There were errors in the compilation
 ) else (
-    echo Compilacion exitosa.
-    echo Use "build/sortingMethods.exe" para ejecutar el programa.
+    echo Successfully compiled the project. 
+    echo Use "build/sortingMethods.exe" to execute the program.
 )
