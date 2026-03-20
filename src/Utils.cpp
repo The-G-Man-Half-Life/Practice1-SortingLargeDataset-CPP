@@ -4,6 +4,8 @@
 #include <iostream>
 #include <random>
 
+//methods
+
 std::vector<std::string> Utils::readWordsFromFile(std::string& ubication){
     //variables
     std::vector<std::string> wordsVec;
@@ -27,19 +29,32 @@ std::vector<std::string> Utils::readWordsFromFile(std::string& ubication){
     return wordsVec;
 }
 
-void Utils::randomizeWordsOrd(std::vector<std::string>& wordsVec){
+std::vector<int> Utils::convertWordsToInts(int wordsVecSize){
+    //variables
+    std::vector<int> intVec;
+    
+    //this will creates a vector with numbers from 1 to the size of the vector
+    //allowing for better management
+    for (int i = 1; i <= wordsVecSize; i++)
+    {
+        intVec.push_back(i);
+    }
+    return intVec;
+}
+
+void Utils::randomizeWordsOrd(std::vector<int>& intsVec, int wordsVecSize){
     //variables
     int rdmNum;
     
     //creator of random number    
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(0,99999);
+    std::uniform_int_distribution<> dis(0,wordsVecSize-1);
 
     //cycle to swap words and randomize order
-    for (int i = 0; i < wordsVec.size()-1 ; i++)
+    for (int i = 0; i < intsVec.size()-1 ; i++)
     {
         rdmNum = dis(gen);
-        std::swap(wordsVec[i], wordsVec[rdmNum]);
+        std::swap(intsVec[i], intsVec[rdmNum]);
     }
 }

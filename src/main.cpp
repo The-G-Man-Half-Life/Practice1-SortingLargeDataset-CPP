@@ -1,25 +1,39 @@
 #include <iostream>
 #include "Utils.hpp"
-
+#include "QuickSort.hpp"
 
 int main(){
 
     
-    // // test to try out the function to put in the words in the vector
-    // // variables
-    // std::string fileUbication;
-    // std::vector<std::string> wordsVec;
-    // //caling the function to read the file
+    // test to try out the function to put in the words in the vector
+    // variables
+    std::string fileUbication;
+    std::vector<std::string> wordsVec;
+    std::vector<int> intsVec;
+    int wordsVecSize;
+    //caling the function to read the file
     
-    // fileUbication = "data/dataset.txt";
-    // wordsVec = Utils::readWordsFromFile(fileUbication);
-    // std::cout << "Se leyeron: " << wordsVec.size() << std::endl;
+    fileUbication = "data/dataset.txt";
+    wordsVec = Utils::readWordsFromFile(fileUbication);
+    wordsVecSize = wordsVec.size();
 
-    // Utils::randomizeWordsOrd(wordsVec);
+    std::cout << "Se leyeron: " << wordsVec.size() << std::endl;
 
-    // for (int i = 0; i < wordsVec.size(); i++)
-    // {
-    //     std::cout << wordsVec.at(i) << std::endl;
-    // }
+    intsVec = Utils::convertWordsToInts(wordsVecSize);
+    Utils::randomizeWordsOrd(intsVec,wordsVecSize);
+
+    std::cout << "Vector antes:" << std::endl;
+    for (int i = 0; i < wordsVec.size(); i++)
+    {
+        std::cout << intsVec.at(i) << std::endl;
+    }   
+
+    intsVec = QuickSort::SortingQuick(intsVec,0,wordsVecSize-1);
+
+    std::cout << "vector despues:" << std::endl;
+    for (int i = 0; i < wordsVec.size(); i++)
+    {
+        std::cout << intsVec.at(i) << std::endl;
+    }
 }
 
