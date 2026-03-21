@@ -29,9 +29,9 @@ int main(){
         std::cout << intsVec.at(i) << std::endl;
     }   
 
-    // intsVec = QuickSort::SortingQuick(intsVec,0,wordsVecSize-1);
+    QuickSort::sortingQuick(intsVec);
 
-    HeapSort::heapingSort(intsVec);
+    // HeapSort::heapingSort(intsVec);
 
     std::cout << "vector despues:" << std::endl;
     for (int i = 0; i < wordsVec.size(); i++)
