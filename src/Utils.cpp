@@ -58,3 +58,44 @@ void Utils::randomizeWordsOrd(std::vector<int>& intsVec, int wordsVecSize){
         std::swap(intsVec[i], intsVec[rdmNum]);
     }
 }
+
+int Utils::showMenu(){    
+    //variables
+    int option;
+
+    //execution
+    std::cout << "========================================\n";
+    std::cout << "  BIENVENIDO A LAS PRUEBAS DE ORDENAMIENTO\n";
+    std::cout << "========================================\n";
+    std::cout << "1. Quick Sort" << std::endl;
+    std::cout << "2. Heap Sort" << std::endl;
+    std::cout << "3. AVL Tree" << std::endl;
+    std::cout << "4. Finalizar el programa" << std::endl;
+    std::cout << "Ingrese la opcion que desee: ";
+
+    // Try reading the number
+    if (std::cin >> option) {
+        //Enter here if the option is a number
+        if (option >= 1 && option <= 4) {
+            return option;
+        } 
+        //Enter here if the option is out of range
+        else {
+            std::cout << "\nEl numero debe estar entre 1 y 4.\n\n";
+            //Extra option to repeat cycle
+            return 5;
+        }
+    } 
+    else {
+        // Enter heres if the option is not a number
+        std::cout << "\nEl numero debe estar entre 1 y 4.\n\n";
+        
+        // clean the console error
+        std::cin.clear(); 
+        
+        // Clean the wrong use input
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        //Extra option to repeat cycle in this case of error
+        return 5;
+    }
+    }
