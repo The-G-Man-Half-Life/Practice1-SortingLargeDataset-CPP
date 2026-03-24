@@ -135,10 +135,29 @@ void BalancedTree::inOrderHelper(Node* node, std::vector<int>& list){
     }
 }
 
+//Recursive method to erase all the nodes 1 by 1
+void BalancedTree::destroyTree(Node* node) {
+    if (node != nullptr) {
+        destroyTree(node->left);
+        destroyTree(node->right);
+        delete node;
+    }
+}
+
 //public methods that will be called in the main
 
+//Constructor that initializes the tree in null pointer
+BalancedTree::BalancedTree() {
+    root = nullptr;
+}
+
+// Destructor that calls itself to clean the ram
+BalancedTree::~BalancedTree() {
+    destroyTree(root);
+}
+
 //method to insert all the numbers representing the words
-void BalancedTree::insertNumber( int number){
+void BalancedTree::insertNumber(int number){
     root = insertHelper(root, number);
 }
 
@@ -151,3 +170,4 @@ std::vector<int> BalancedTree::getInorder(){
     inOrderHelper(root, sortedList); //send the list for it to order it recursively
     return sortedList; // return the list of numbers ,that represent the words, organized
 }
+

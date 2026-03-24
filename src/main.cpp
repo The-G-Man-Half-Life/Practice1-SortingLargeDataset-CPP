@@ -5,7 +5,7 @@
 #include "BalancedTree.hpp"
 #include "Performance.hpp"
 
-void executeQuickSort(std::vector<int>& unorganizedVector){
+void executeQuickSort(std::vector<int> unorganizedVector){
     //variable
     Timer timer;
 
@@ -15,14 +15,15 @@ void executeQuickSort(std::vector<int>& unorganizedVector){
     timer.stop();
 
     //printing of information
+    std::cout << "========================================\n";
     std::cout << "Quick sort Ejecutandose ..." << std::endl;
     std::cout << "Ordenamiento finalizado" << std::endl;
-    std::cout << "Tiempo de ejecucion: " << timer.getDifferenceInMiliseconds() << std::endl;
-    std::cout << "Uso de memoria estimado: ";
+    std::cout << "Tiempo de ejecucion: " << timer.getDifferenceInMiliseconds() << " Miliseconds" << std::endl;
+    std::cout << "Uso de memoria estimado: " << std::endl;
     MemoryEstimator::printQuickSortMemory(unorganizedVector.size());
 }
 
-void executeHeapSort(std::vector<int>& unorganizedVector){
+void executeHeapSort(std::vector<int> unorganizedVector){
     //variable
     Timer timer;
 
@@ -32,14 +33,15 @@ void executeHeapSort(std::vector<int>& unorganizedVector){
     timer.stop();
 
     //printing of information
+    std::cout << "========================================\n";
     std::cout << "Heap sort Ejecutandose ..." << std::endl;
     std::cout << "Ordenamiento finalizado" << std::endl;
-    std::cout << "Tiempo de ejecucion: " << timer.getDifferenceInMiliseconds() << std::endl;
-    std::cout << "Uso de memoria estimado: ";
+    std::cout << "Tiempo de ejecucion: " << timer.getDifferenceInMiliseconds() << " Miliseconds" << std::endl;
+    std::cout << "Uso de memoria estimado: " << std::endl;
     MemoryEstimator::printHeapSortMemory(unorganizedVector.size());
 }
 
-void executeBalancedTree(std::vector<int>& unorganizedVector){
+void executeBalancedTree(std::vector<int> unorganizedVector){
     //variable
     Timer timer;
     BalancedTree tree;
@@ -49,18 +51,19 @@ void executeBalancedTree(std::vector<int>& unorganizedVector){
     timer.start();
     //insert the Dataset in the tree first
     for (int number: unorganizedVector){
-        tree.BalancedTree::insertNumber(number);
+        tree.insertNumber(number);
     }
     //calling the organizator method
     organizedList = tree.getInorder();
     timer.stop();
 
     //printing of information
+    std::cout << "========================================\n";
     std::cout << "AVL tree Ejecutandose ..." << std::endl;
     std::cout << "Ordenamiento finalizado" << std::endl;
-    std::cout << "Tiempo de ejecucion: " << timer.getDifferenceInMiliseconds() << std::endl;
-    std::cout << "Uso de memoria estimado: ";
-    MemoryEstimator::printHeapSortMemory(unorganizedVector.size());
+    std::cout << "Tiempo de ejecucion: " << timer.getDifferenceInMiliseconds() << " Miliseconds" << std::endl;
+    std::cout << "Uso de memoria estimado: " << std::endl;
+    MemoryEstimator::printBalancedTreeMemory(unorganizedVector.size());
 }
 
 int main(){
@@ -90,12 +93,15 @@ int main(){
         switch (option){
         case 1:
             executeQuickSort(intsVec);
+            Utils::pauseConsole();
             break;
         case 2:
             executeHeapSort(intsVec);
+            Utils::pauseConsole();
             break;
         case 3:
             executeBalancedTree(intsVec);
+            Utils::pauseConsole();
             break;
         case 4:
             std::cout << "Adios" << std::endl;

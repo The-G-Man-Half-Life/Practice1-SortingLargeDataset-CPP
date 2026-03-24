@@ -64,14 +64,14 @@ int Utils::showMenu(){
     int option;
 
     //execution
-    std::cout << "========================================\n";
-    std::cout << "  BIENVENIDO A LAS PRUEBAS DE ORDENAMIENTO\n";
+    std::cout << "\n========================================\n";
+    std::cout << "BIENVENIDO A LAS PRUEBAS DE ORDENAMIENTO\n";
     std::cout << "========================================\n";
     std::cout << "1. Quick Sort" << std::endl;
     std::cout << "2. Heap Sort" << std::endl;
     std::cout << "3. AVL Tree" << std::endl;
     std::cout << "4. Finalizar el programa" << std::endl;
-    std::cout << "Ingrese la opcion que desee: ";
+    std::cout << "Ingrese la opcion que desee ejecutar: ";
 
     // Try reading the number
     if (std::cin >> option) {
@@ -98,4 +98,12 @@ int Utils::showMenu(){
         //Extra option to repeat cycle in this case of error
         return 5;
     }
-    }
+}
+
+// Auxiliar function to clean the console
+void Utils::pauseConsole() {
+    std::cout << "\nPresione Enter para continuar...";
+    // Cleans any rests from std::cin >> option
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cin.get(); 
+}

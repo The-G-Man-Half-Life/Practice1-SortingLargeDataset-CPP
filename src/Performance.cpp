@@ -32,24 +32,27 @@ void MemoryEstimator::printQuickSortMemory(int numElements) {
 
     long long totalMemory = vectorBase + elementsMemory + recursionStack;
 
-    std::cout << "  Base Vector: " << vectorBase << " bytes\n";
-    std::cout << "  Elements (" << numElements << " strings): " << elementsMemory / 1024 << " KB\n";
-    std::cout << "  Recursive stack (Aprox): " << recursionStack << " bytes\n";
-    std::cout << "  -> Stimated total: " << totalMemory / 1024 << " KB\n";
+    std::cout << "Vector base: " << vectorBase << " bytes\n";
+    std::cout << "Elementos (" << numElements << " strings): " << elementsMemory / 1024 << " KB\n";
+    std::cout << "Stack recursivo (Aprox): " << recursionStack << " bytes\n";
+    std::cout << "-> Total estimado: " << totalMemory / 1024 << " KB\n";
+    std::cout << "========================================\n";
 }
 
 void MemoryEstimator::printHeapSortMemory(int numElements) {
     // HeapSort also uses a std::vector but its recursion is different
-    long long vectorBase = sizeof(std::vector<std::string>);
-    long long elementsMemory = numElements * sizeof(std::string);
+    long long vectorBase = sizeof(std::vector<int>);
+    long long elementsMemory = numElements * sizeof(int);
     long long recursionStack = (log2(numElements)) * 32; // Max recursion of O(log N) at heapify 
 
     long long totalMemory = vectorBase + elementsMemory + recursionStack;
 
-    std::cout << "  Base vector: " << vectorBase << " bytes\n";
-    std::cout << "  Elements (" << numElements << " strings): " << elementsMemory / 1024 << " KB\n";
-    std::cout << "  Recursivve stack of Heapify: " << recursionStack << " bytes\n";
-    std::cout << "  -> Stimated total: " << totalMemory / 1024 << " KB\n";
+    std::cout << "Vector base: " << vectorBase << " bytes\n";
+    std::cout << "Elementos (" << numElements << " strings): " << elementsMemory / 1024 << " KB\n";
+    std::cout << "Stack recursivo de heapify: " << recursionStack << " bytes\n";
+    std::cout << "-> Total estimado: " << totalMemory / 1024 << " KB\n";
+    std::cout << "========================================\n";
+
 }
 
 void MemoryEstimator::printBalancedTreeMemory(int numElements) {
@@ -62,8 +65,10 @@ void MemoryEstimator::printBalancedTreeMemory(int numElements) {
 
     long long totalMemory = allNodesMemory + finalVectorMemory + recursionStack;
 
-    std::cout << "  size by Node (sizeof): " << nodeSize << " bytes\n";
-    std::cout << "  Total Nodes (" << numElements << "): " << allNodesMemory / 1024 << " KB\n";
-    std::cout << "  Final vector (Result list): " << finalVectorMemory / 1024 << " KB\n";
-    std::cout << "  -> Stimated total: " << totalMemory / 1024 << " KB\n";
+    std::cout << "medida por nodo (sizeof): " << nodeSize << " bytes\n";
+    std::cout << "Total de nodos (" << numElements << "): " << allNodesMemory / 1024 << " KB\n";
+    std::cout << "Vector final: " << finalVectorMemory / 1024 << " KB\n";
+    std::cout << "-> Total estimado: " << totalMemory / 1024 << " KB\n";
+    std::cout << "========================================\n";
+
 }

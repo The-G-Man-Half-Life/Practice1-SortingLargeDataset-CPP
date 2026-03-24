@@ -36,7 +36,13 @@ private:
     Node* insertHelper(Node* node, int& word);
     void inOrderHelper(Node* node, std::vector<int>& list);
 
+    //To clean the memory
+    void destroyTree(Node* node);
+    
 public:
+    BalancedTree();  // Constructor
+    ~BalancedTree(); // Destructor
+
     /*public methods that will be used to contact the private methods 
     with the other classes that might require it*/
     void insertNumber(int number);
