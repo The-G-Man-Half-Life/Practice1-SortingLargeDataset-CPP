@@ -13,7 +13,7 @@ private:
     (start) until a certain point (end). It will do that recursively creating mini imaginary vectors inside the vector
     until the sorting made by partitionate brings us to start == end because it means that the sorting in the vector 
     would have been completed already. We use something called pivot which will be the center(we take it always at 
-    the beggining of each vector) of the algorithm as it will compare its value with every element  put in the left
+    the end of each vector) of the algorithm as it will compare its value with every element put in the left
     in case is less or equal to itself, but if is bigger we put it on the right side once this organization is made 
     we leave that pivot and make the imaginary vector in each side where the left will begin from the start of the 
     original vector and 1 position back of the pivot we left alone and the right will begin 1 position after the pivot 
