@@ -181,7 +181,15 @@ Center of execution where all the other files converge and the final user intera
 | **HeapSort** | O(n log n) | O(n log n) | O(n log n) | O(log n) |
 | **AVL Tree** | O(n log n) | O(n log n) | O(n log n) | O(n) |
 
-**Key observations:**
+**Which algorithm performed better?**
+
+R/ After doing several tests QuickSort ended up getting the fastest results. However, There were situations where AVL Tree obtained faster results maybe due to the fact that QuickSort could have gotten a bad pivot.
+
+**Why does theoretical complexity sometimes differ from practical results?**
+
+R/ It may differ due to that each sorting algorithm holds pros and cons meaning that in certain scenarios one that can be the slowest like QuickSort getting a horrendous pivot but with a good structure for AVL tree or HeapSort.However, we have to consider the fact of the system running it, due to that sorting algorithms like heap sort or AVL tree requires extra cache or memory, meaning that in systems without good components to make them run properly can end up affecting the final result.
+
+**What advantages or disadvantages does each data structure present?**
 
 - QuickSort achieves the best average-case performance in practice due to excellent cache locality, but degrades to O(n²) when the pivot selection is poor.
 - HeapSort guarantees O(n log n) in all cases but has worse cache behaviour than QuickSort because heap accesses jump across memory.
